@@ -1,0 +1,2 @@
+AsBrand = "xx";
+AsModel = "yy";
