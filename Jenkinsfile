@@ -21,7 +21,8 @@ pipeline {
                     echo "Build brand: ${brand} ${model}"
                     echo "change config file:"
 
-                    sh 'cat /config.c'
+                    sh 'cat config.c'
+                    sh 'ls -la'
 
 
                     }
