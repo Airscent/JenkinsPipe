@@ -26,8 +26,8 @@ pipeline {
 
                     if (lines.size() >= 2) {
                         def version = lines[1]
-                        lines[2] = 'AsBrand = "{brand}";'
-                        lines[3] = 'AsModel = "${model}";'
+                        lines[2] = 'AsBrand = "'+brand+'";'
+                        lines[3] = 'AsModel = "'+model+'";'
                     }
                     file.text = lines.join('\n')
 
