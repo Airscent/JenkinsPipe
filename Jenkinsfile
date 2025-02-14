@@ -21,17 +21,16 @@ pipeline {
                     echo "Build brand: ${brand} ${model}"
 
                     echo "change config file:"
-                    def file = new File('config.c')
+                    def file = new File('config1.c')
                     def lines = file.readLines()
 
                     if (lines.size() >= 2) {
-                        def version = lines[1]
                         lines[2] = 'AsBrand = "'+brand+'";'
                         lines[3] = 'AsModel = "'+model+'";'
                     }
                     file.text = lines.join('\n')
 
-                    sh 'cat config.c'
+                    sh 'cat config1.c'
 
                     }
                 }
