@@ -14,16 +14,14 @@ pipeline {
     stage('Iteration über ein Array') {
         steps {
             script {
-                def fruits = ['Apfel', 'Banane', 'Orange']
+                def brands = ['Apfel', 'Banane', 'Orange']
+                def moddels = ['Quad', 'Octo', 'Venturi','Aromare']
+                brands.each { brand ->
+                    moddels.each { model ->
+                    echo "Build brand: ${brand} ${model}"
 
-                // Verwendung von each
-                fruits.each { fruit ->
-                    echo "Frucht: ${fruit}"
-                }
-
-                // Verwendung von eachWithIndex
-                fruits.eachWithIndex { fruit, index ->
-                    echo "Frucht Nr. ${index + 1}: ${fruit}"
+                    
+                    }
                 }
             }
         }
