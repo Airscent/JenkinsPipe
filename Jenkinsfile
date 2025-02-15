@@ -23,13 +23,11 @@ pipeline {
                     echo "change config file:"
                     def file = new File('config1.c')
                     def lines = file.readLines()
-
-                    if (lines.size() >= 2) {
-                        lines[2] = 'AsBrand = "'+brand+'";'
-                        lines[3] = 'AsModel = "'+model+'";'
+                    if (lines.size() >= 1) {
+                        lines[2] = "AsBrand = '${brand}';"
+                        lines[3] = "AsModel = '${model}';"
                     }
                     file.text = lines.join('\n')
-
                     sh 'cat config1.c'
 
                     }
