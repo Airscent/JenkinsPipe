@@ -27,7 +27,7 @@ pipeline {
                     //    lines[2] = "AsBrand = '${brand}';"
                     //    lines[3] = "AsModel = '${model}';"
                     //}
-                    file.text = lines.join('\n')
+                    //file.text = lines.join('\n')
                     sh 'cat config1.c'
 
                     }
