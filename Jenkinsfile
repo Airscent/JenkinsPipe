@@ -20,8 +20,8 @@ pipeline {
                     moddels.each { model ->
                     echo "Build brand: ${brand} ${model}"
 
-                    echo "change config file:"
-                    sh 'cat config.c'
+                    //echo "change config file:"
+                    //sh 'cat config.c'
 
                     }
                 }
