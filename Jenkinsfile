@@ -21,7 +21,7 @@ pipeline {
     // }
     stage('check arduino esp') {
       steps {
-        sh 'arduino-cli board listall | grep ESP32C3'
+        sh 'arduino-cli board listall'
       }
     }
     stage('hello python') {
