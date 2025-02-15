@@ -21,13 +21,17 @@ pipeline {
                     echo "Build brand: ${brand} ${model}"
 
                     echo "change config file:"
-    
-                    sh 'cat config1.c'
+                    sh 'cat config.c'
 
                     }
                 }
             }
         }
+    }
+    stage('check arduino') {
+      steps {
+        sh 'arduino-cli board listall'
+      }
     }
   }
 }
