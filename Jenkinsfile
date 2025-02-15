@@ -6,18 +6,23 @@ pipeline {
         sh 'python3 --version'
       }
     }
-    stage('Install Arduino-CLI') {
-        steps {
-            // Arduino-CLI herunterladen und installieren
-            sh '''
-                wget https://github.com/arduino/arduino-cli/releases/download/v1.2.0-rc.1/arduino-cli_1.2.0-rc.1_Linux_ARM64.tar.gz
-                tar -xzf arduino-cli_1.2.0-rc.1_Linux_ARM64.tar.gz 
-                sudo mv arduino-cli /usr/local/bin/
-                sudo arduino-cli config init
-                sudo arduino-cli core install esp32:esp32
-                arduino-cli board listall
-            '''
-        }
+    // stage('Install Arduino-CLI') {
+    //     steps {
+    //         // Arduino-CLI herunterladen und installieren
+    //         sh '''
+    //             wget https://github.com/arduino/arduino-cli/releases/download/v1.2.0-rc.1/arduino-cli_1.2.0-rc.1_Linux_ARM64.tar.gz
+    //             tar -xzf arduino-cli_1.2.0-rc.1_Linux_ARM64.tar.gz 
+    //             sudo mv arduino-cli /usr/local/bin/
+    //             sudo arduino-cli config init
+    //             sudo arduino-cli core install esp32:esp32
+    //             arduino-cli board listall
+    //         '''
+    //     }
+    // }
+    stage('check arduino esp') {
+      steps {
+        sh 'arduino-cli board listall | grep ESP32C3'
+      }
     }
     stage('hello python') {
       steps {
@@ -41,10 +46,6 @@ pipeline {
             }
         }
     }
-    stage('check arduino') {
-      steps {
-        sh 'arduino-cli board listall'
-      }
-    }
+    
   }
 }
